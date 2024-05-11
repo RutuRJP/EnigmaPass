@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         // const passwordsArray = [password, ...newPasswords.split(',')];
                         // saveStringsToFile(passwordsArray);
                         // Redirect back to home page
-                        window.location.href = 'home.html';
+                        window.location.href = 'index.html';
                     });
                 }
             });
