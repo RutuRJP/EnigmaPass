@@ -64,7 +64,7 @@ function submitPassword() {
 
         // Redirect to home page after 2 seconds
         setTimeout(function() {
-            window.location.href = 'home.html'; // Replace 'home.html' with the URL of your home page
+            window.location.href = 'index.html'; // Replace 'home.html' with the URL of your home page
             }, 2000); // 2000 milliseconds = 2 seconds
     } else {
         const otherPasswords = localStorage.getItem(`${currentUsername}-other`).split(',');
