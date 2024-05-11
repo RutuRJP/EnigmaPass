@@ -1,0 +1,72 @@
+<!--Home page HTML-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>EngimaPass</h2>
+        <form action="login.html" method="get">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="button-group">
+                <button type="button" class="login-btn">Login</button>
+                <button type="button" class="register-btn">Register</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const loginBtn = document.querySelector('.login-btn');
+        const registerBtn = document.querySelector('.register-btn');
+        const username = document.querySelector('#username').value;
+
+        // if username is not empty enable the buttons
+        // add event listener to input field to check if the username is not empty
+        loginBtn.disabled = true;
+        registerBtn.disabled = true;
+        const inputField = document.querySelector('#username');
+        const currentUsername = sessionStorage.getItem('username');
+
+        inputField.addEventListener('input', () => {
+            if (currentUsername && currentUsername===inputField.value) {
+                registerBtn.disabled = true;
+            } else {
+                if (inputField.value !== '') {
+                    loginBtn.disabled = false;
+                    registerBtn.disabled = false;
+                } else {
+                    loginBtn.disabled = true;
+                    registerBtn.disabled = true;
+                }
+            }
+        });
+
+        loginBtn.addEventListener('click', () => {
+            const storedUsername = localStorage.getItem(`${inputField.value}`);
+            if (storedUsername) {
+                sessionStorage.setItem('username', inputField.value);
+                window.location.href = 'login.html';
+            } else {
+                alert('User not found');
+            }
+        });
+
+        // on submit store username to session storage
+        registerBtn.addEventListener('click', () => {
+            sessionStorage.setItem('username', inputField.value);
+            window.location.href = 'register.html';
+        });
+    </script>
+</body>
+
+</html>

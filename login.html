@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="password.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <h2 class="text-xl font-bold mt-5">Login</h2>
+    <div class="container mx-auto max-w-xl p-5">
+        <!-- access message -->
+        <div id="access-message" class="hidden text-lg font-bold rounded p-5 text-white mb-5">
+        </div>
+
+        <div>
+            <p id="usernameParagraph" style="display: none;" class="block mb-2 text-md font-medium text-gray-700 flex gap-2">Username:  <span id="username" class="block mb-2 text-md font-bold"></span></p>
+        </div>
+
+        <div id="selected-questions" class="text-left mb-5"></div>
+
+        <div class="flex items-center justify gap-2 mb-5">
+            <!-- Display Area -->
+            <div class="display border h-10 w-full rounded-lg grid place-content-center m-0">
+                <span id="passwordDisplay" class="font-semibold text-lg"></span>
+            </div>
+            <button onclick="backspace()" class="min-w-16 focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-center grid place-content-center text-sm px-2 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button>
+        </div>
+
+        <!-- Keypad -->
+        <div class="keypad select-none" id="keypad">
+        </div>
+        
+        <!-- Submit button -->
+        <button onclick="submitPassword()" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 w-full mt-5 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Submit</button>
+    </div>
+    
+    <script src="password.js" defer></script>
+</body>
+</html>
